@@ -7,7 +7,7 @@
    Zero terminators are not printable (therefore false) */
 int space_char(char c)
 {
-    if ((ch == ' ') || (ch == '\t'))
+    if ((c == ' ') || (c == '\t'))
         return 1;
 
     return 0;
@@ -18,7 +18,7 @@ int space_char(char c)
    Zero terminators are not printable (therefore false) */ 
 int non_space_char(char c)
 {
-   if ((ch != ' ') && (ch != '\t'))
+   if ((c != ' ') && (c != '\t'))
         return 1;
 
     return 0;
