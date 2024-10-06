@@ -56,7 +56,21 @@ int count_tokens(char *str){
 
 /* Returns a fresly allocated new zero-terminated string 
    containing <len> chars from <inStr> */
-char *copy_str(char *inStr, short len);
+char *copy_str(char *inStr, short len) {
+    char *new_string;
+    
+    int i;
+    for(i=0; i<=len; i++){
+        if (i == len){
+            *inStr = '\0';
+        } else {
+            inStr++;
+        }
+    }
+    inStr = inStr - i;
+    char *p = inStr;
+    return p;
+}
 
 /* Returns a freshly allocated zero-terminated vector of freshly allocated 
    space-separated tokens from zero-terminated str.
