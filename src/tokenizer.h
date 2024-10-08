@@ -57,18 +57,18 @@ int count_tokens(char *str){
 /* Returns a fresly allocated new zero-terminated string 
    containing <len> chars from <inStr> */
 char *copy_str(char *inStr, short len) {
-    char *new_string;
+    char new_string[len+1];
     
     int i;
     for(i=0; i<=len; i++){
         if (i == len){
-            *inStr = '\0';
+            new_string[i] = '\0';
         } else {
+            new_string[i] = *inStr;
             inStr++;
         }
     }
-    inStr = inStr - i;
-    char *p = inStr;
+    char *p = new_string;
     return p;
 }
 
