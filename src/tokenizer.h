@@ -59,15 +59,14 @@ int count_tokens(char *str){
 char *copy_str(char *inStr, short len) {
     char new_string[len+1];
     
-    int i;
-    for(i=0; i<=len; i++){
-        if (i == len){
-            new_string[i] = '\0';
-        } else {
-            new_string[i] = *inStr;
-            inStr++;
-        }
+    int i=0;
+    while(i < len){
+        new_string[i] = *inStr;
+        inStr++;
+        i++;
     }
+    new_string[len] = '\0';
+    
     char *p = new_string;
     return p;
 }
