@@ -138,6 +138,13 @@ void print_tokens(char **tokens){
 }
 
 /* Frees all tokens and the vector containing themx. */
-void free_tokens(char **tokens);
+void free_tokens(char **tokens){
+    int i;
+        for (i = 0; *(tokens + i); i++)
+        {
+            free(*(tokens + i));
+        }
+        free(tokens);
+}
 
 #endif
