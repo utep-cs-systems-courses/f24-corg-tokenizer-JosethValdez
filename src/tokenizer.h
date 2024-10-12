@@ -1,7 +1,10 @@
 #ifndef _TOKENIZER_
 #define _TOKENIZER_
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 /* Return true (non-zero) if c is a whitespace characer
    ('\t' or ' ').  
    Zero terminators are not printable (therefore false) */
