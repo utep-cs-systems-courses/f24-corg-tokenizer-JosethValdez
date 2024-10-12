@@ -1,6 +1,9 @@
 #ifndef _HISTORY_
 #define _HISTORY_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct s_Item {
   int id;
   char *str;
@@ -56,7 +59,15 @@ void add_history(List *list, char *str){
 char *get_history(List *list, int id);
 
 /*Print the entire contents of the list. */
-void print_history(List *list);
+void print_history(List *list){
+    Item* current = list->root;
+    
+    while (current != NULL) {
+        printf("%d\t", current->id);
+        printf("%d\n", current->str);
+        current = current->next;
+    }
+}
 
 /*Free the history list and the strings it references. */
 void free_history(List *list);
