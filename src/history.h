@@ -12,13 +12,43 @@ typedef struct s_List {
 } List;
 
 /* Initialize the linked list to keep the history. */
-List* init_history();
+List* init_history() {
+    Item* head = (Item*)malloc(sizeof(Item));
+    
+    if (head == NULL) {
+        printf("ERROR WITH MEMORY");
+    }
+    
+    head->id = 0;
+    head->str = "";
+    head->next = NULL;
+}
 
 /* Add a history item to the end of the list.
    List* list - the linked list
    char* str - the string to store
 */
-void add_history(List *list, char *str);
+void add_history(List *list, char *str){
+    Item* current = list->root;
+    
+    if (current->str == ""){
+        current->str = str;
+        return;
+    }
+    
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    
+    Item* new_node = (Item*)malloc(sizeof(Item));
+    if (new_node == NULL) {
+        printf("ERROR WITH MEMORY");
+    }
+    new_node->id = current->id+1;
+    new_node->str = str;
+    current->next = new_node;
+    new_node->next = NULL;
+}
 
 /* Retrieve the string stored in the node where Item->id == id.
    List* list - the linked list
